@@ -1,0 +1,9 @@
+---
+applications:
+ - name: oauthdemo-sample
+   memory: 1G
+   instances: 1
+   buildpack: java_buildpack
+   path: build/libs/oauthdemo-0.0.1-SNAPSHOT.jar
+   env:
+    SPRING_PROFILES_ACTIVE: dev

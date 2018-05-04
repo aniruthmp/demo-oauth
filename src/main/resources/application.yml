@@ -1,0 +1,36 @@
+AUTH_SERVER: https://pivot-aparthasarathy.login.run.pcfbeta.io/
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+endpoints:
+  sensitive: false
+
+spring:
+  profiles:
+    active: dev
+
+ssoScope: pivotal
+
+---
+
+spring:
+  profiles: dev, cloud
+
+security:
+  basic:
+    enabled: false
+  require_ssl: false
+  oauth2:
+    client:
+      client-id: f17dfc29-7c0f-4e50-af2c-06a21b670fd0
+      client-secret: 4ddded4b-3d76-4050-b992-aca956ca489f
+    resource:
+      preferTokenInfo: false
+      userInfoUri: ${AUTH_SERVER}/userinfo
+      tokenInfoUri: ${AUTH_SERVER}/check_token
+      jwk:
+        key-set-uri: ${AUTH_SERVER}/token_keys
